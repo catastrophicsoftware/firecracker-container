@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 echo "Creating bridge interface"
 ip link add name br0 type bridge
 ip addr add 172.20.0.1/24 dev br0
