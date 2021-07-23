@@ -1,0 +1,7 @@
+stages:
+  - build
+  
+build_image:
+  stage: build
+  script:
+    - docker build -t firecracker:$CI_COMMIT_BRANCH .
