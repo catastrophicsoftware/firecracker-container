@@ -2,7 +2,7 @@
 
 Containerized firecracker.
 
-EXAMPLE:
+USAGE EXAMPLE:
 
 docker run -d --name test \
 -v "$PWD"/vms/alpine/vmlinux.bin:/vm/vmlinux.bin \
