@@ -18,6 +18,9 @@ brctl addif br0 tap0
 ifconfig tap0 up
 echo "Done!"
 
+echo "Adding default port forwarding rule for ssh on 23"
+iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 23 -j DNAT --to 172.20.0.2:23 #TODO: automate this
+
 echo "Launching MicroVM!"
 firecracker --no-api --config-file /vm/config.json
 echo "MicroVM Terminated!"
