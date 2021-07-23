@@ -1,4 +1,3 @@
 vms/*
 scratch
-test.sh
-refresh.sh
+*.sh
