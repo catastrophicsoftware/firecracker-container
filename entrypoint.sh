@@ -7,7 +7,7 @@ ip link set dev br0 up
 echo "Done!"
 
 echo "Configuring NAT"
-sysctl -w net.ipv4.ip_forward=1
+#sysctl -w net.ipv4.ip_forward=1
 iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE
 iptables --insert FORWARD --in-interface br0 -j ACCEPT
 echo "Done!"
