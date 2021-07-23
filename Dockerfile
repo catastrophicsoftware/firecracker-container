@@ -1,7 +1,7 @@
 FROM alpine:3.9
 WORKDIR /vm
 
-RUN apk update && apk add iputils iproute2 wget htop openssh-client
+RUN apk update && apk add iputils iproute2
 
 #Install firecracker
 RUN cd /tmp && wget https://github.com/firecracker-microvm/firecracker/releases/download/v0.23.4/firecracker-v0.23.4-x86_64.tgz
