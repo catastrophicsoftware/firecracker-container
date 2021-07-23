@@ -20,6 +20,8 @@ echo "Done!"
 
 echo "Adding default port forwarding rule for ssh on 23"
 iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 23 -j DNAT --to 172.20.0.2:23 #TODO: automate this
+#in production situations, we don't know what the internal address of the MicroVM will be.
+echo "Done!"
 
 echo "Launching MicroVM!"
 firecracker --no-api --config-file /vm/config.json
