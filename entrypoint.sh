@@ -21,6 +21,13 @@ echo "Adding default port forwarding rule for ssh"
 iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 22 -j DNAT --to $MICROVM_IP:22
 echo "Done!"
 
+echo "Adding additional port forwarding rules"
+for i in $(echo $PORTS | sed "s/,/ /g")
+do
+    iptables -A PREROUTING -t nat -i eth0 -p tcp --dport $i -j DNAT --to $MICROVM_IP:$i
+done
+echo "Done"
+
 echo "Launching MicroVM!"
 firecracker --no-api --config-file config.json
 echo "MicroVM Terminated!"
