@@ -1,18 +1,18 @@
 # firecracker-container
 
 ## REQUIREMENTS:
--A host with KVM virtualization enabled
--Create a root filesystem image
--Compile or acquire an uncompressed linux kernel binary
--Create a firecracker MicroVM config file
+- A host with KVM virtualization enabled
+- Create a root filesystem image
+- Compile or acquire an uncompressed linux kernel binary
+- Create a firecracker MicroVM config file
 
 ### USAGE:
 The kernel, rootfs image and config file will need to be mounted into the container under /vm
 Make sure that the filepaths in the config file reference locations under /vm
 
--It is required that the iface_id in the config file for the MicroVM be eth0
--It is required that the host_dev_name config file for the MicroVM be tap0
--tap0 is automatically created when the host container launches
+- It is required that the iface_id in the config file for the MicroVM be eth0
+- It is required that the host_dev_name config file for the MicroVM be tap0
+- tap0 is automatically created when the host container launches
 -It is expected that the rootfs image is configured to bring up eth0, with the address 172.20.0.2
 
 ```
