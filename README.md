@@ -1,12 +1,12 @@
 # firecracker-container
 
-##REQUIREMENTS:
+## REQUIREMENTS:
 -A host with KVM virtualization enabled
 -Create a root filesystem image
 -Compile or acquire an uncompressed linux kernel binary
 -Create a firecracker MicroVM config file
 
-###USAGE:
+### USAGE:
 The kernel, rootfs image and config file will need to be mounted into the container under /vm
 Make sure that the filepaths in the config file reference locations under /vm
 
@@ -55,6 +55,6 @@ docker run -d --name test \
 firecracker
 ```
 
-##Limitations:
+## Limitations:
 Currently, only a single port forwarding rule is created in the host container to forward port 22 (inside the host container) to port 22 on the MicroVMs address.
 If you need to forward additional ports to the MicroVM (which is somewhat likely) you will need to hack together your own solution to have the host container create these rules at launch
