@@ -1,7 +1,5 @@
 #!/bin/sh
 
-MICROVM_IP='172.20.0.2'
-
 echo "Creating bridge interface"
 ip link add name br0 type bridge
 ip addr add 172.20.0.1/24 dev br0
@@ -19,8 +17,8 @@ brctl addif br0 tap0
 ifconfig tap0 up
 echo "Done!"
 
-echo "Adding default port forwarding rule for ssh on 23"
-iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 23 -j DNAT --to 172.20.0.2:23 #TODO: automate this
+echo "Adding default port forwarding rule for ssh"
+iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 22 -j DNAT --to $MICROVM_IP:22
 echo "Done!"
 
 echo "Launching MicroVM!"
